@@ -2,40 +2,42 @@
 
 ## System Overview
 
-```
-+------------------------------------------------------------------+
-|                        AI Fitness Coach                           |
-+------------------------------------------------------------------+
-|                                                                   |
-|  +-----------+     +-------------------+     +----------------+   |
-|  |           |     |                   |     |                |   |
-|  |  WhatsApp +---->+ Claude Code +     +---->+ fitness-cli.py     |   |
-|  |  (User)   |     | WhatsApp Plugin   |     | (CLI)          |   |
-|  |           |     |                   |     |                |   |
-|  +-----------+     +--------+----------+     +-------+--------+   |
-|                             |                        |            |
-|                             v                        v            |
-|                    +--------+----------+     +-------+--------+   |
-|                    |                   |     |                |   |
-|                    | group-config.md   |     | db_manager.py  |   |
-|                    | (Coach persona +  |     | (SQLite layer) |   |
-|                    |  tool definitions)|     |                |   |
-|                    +-------------------+     +-------+--------+   |
-|                                                      |            |
-|  +-----------+                               +-------+--------+   |
-|  |           |                               |                |   |
-|  |  Cron Job +----> workout-reminder.sh ---->+ fitness.db  |   |
-|  |  (daily)  |     (fetches status,          | (SQLite file)  |   |
-|  |           |      sends via Claude)        |                |   |
-|  +-----------+                               +----------------+   |
-|                                                                   |
-|  +-------------------+     +-------------------+                  |
-|  |                   |     |                   |                  |
-|  | profile.json      |     | exercises.md      |                  |
-|  | (user config)     |     | (70+ exercises)   |                  |
-|  +-------------------+     +-------------------+                  |
-|                                                                   |
-+------------------------------------------------------------------+
+```mermaid
+flowchart TD
+    subgraph User
+        WA["WhatsApp\n(User)"]
+    end
+
+    subgraph Claude["Claude Code + WhatsApp Plugin"]
+        CC["Claude Code"]
+        GC["group-config.md\n(Coach persona +\ntool definitions)"]
+        CC --> GC
+    end
+
+    subgraph Backend
+        CLI["fitness-cli.py\n(CLI)"]
+        DBM["db_manager.py\n(SQLite layer)"]
+        DB["fitness.db\n(SQLite)"]
+        CLI --> DBM --> DB
+    end
+
+    subgraph Config
+        PROF["profile.json\n(user config)"]
+        EXDB["exercises.md\n(70+ exercises)"]
+    end
+
+    subgraph Automation
+        CRON["Cron Job\n(daily)"]
+        SCRIPT["workout-reminder.sh"]
+        CRON --> SCRIPT
+    end
+
+    WA <-->|messages, photos, voice| CC
+    CC -->|runs commands| CLI
+    CLI --> PROF
+    CLI --> EXDB
+    SCRIPT -->|fetches status| CLI
+    SCRIPT -->|sends reminder via| CC
 ```
 
 ### Component Summary
@@ -289,48 +291,67 @@ CREATE TABLE exercise_logs (
 
 ### Entity Relationship Diagram
 
-```
-+------------------+
-| body_metrics     |
-|------------------|         +------------------+
-| id (PK)          |         | food_logs        |
-| timestamp        |         |------------------|
-| weight_kg        |         | id (PK)          |
-| body_fat         |         | timestamp        |
-| bmi              |         | food_description |
-| muscle_mass      |         | calories         |
-| water_percentage |         | protein_g        |
-| bone_mass        |         | carbs_g          |
-| basal_metabolism |         | fat_g            |
-| visceral_fat     |         | image_path       |
-| protein          |         | notes            |
-+------------------+         +------------------+
+```mermaid
+erDiagram
+    body_metrics {
+        int id PK
+        datetime timestamp
+        datetime fetch_timestamp
+        real weight_kg
+        real body_fat
+        real bmi
+        real muscle_mass
+        real water_percentage
+        real bone_mass
+        real basal_metabolism
+        real visceral_fat
+        real protein
+    }
 
-+------------------+         +------------------+
-| sleep_logs       |         | workout_logs     |
-|------------------|         |------------------|
-| id (PK)          |         | id (PK)          |
-| timestamp        |         | timestamp        |
-| sleep_date       |         | location         |
-| bedtime          |         | target_muscle    |
-| wake_time        |         | duration_minutes |
-| duration_hours   |         | exercises_json   |
-| quality          |         | notes            |
-| notes            |         +------------------+
-+------------------+
-                             +------------------+
-                             | exercise_logs    |
-                             |------------------|
-                             | id (PK)          |
-                             | timestamp        |
-                             | exercise_name    |
-                             | muscle_group     |
-                             | weight_lbs       |
-                             | sets             |
-                             | reps             |
-                             | rpe              |
-                             | notes            |
-                             +------------------+
+    food_logs {
+        int id PK
+        datetime timestamp
+        text food_description
+        real calories
+        real protein_g
+        real carbs_g
+        real fat_g
+        text image_path
+        text notes
+    }
+
+    sleep_logs {
+        int id PK
+        datetime timestamp
+        text sleep_date
+        text bedtime
+        text wake_time
+        real duration_hours
+        text quality
+        text notes
+    }
+
+    workout_logs {
+        int id PK
+        datetime timestamp
+        text location
+        text target_muscle
+        int duration_minutes
+        text exercises_json
+        text notes
+    }
+
+    exercise_logs {
+        int id PK
+        datetime timestamp
+        text exercise_name
+        text muscle_group
+        real weight_lbs
+        int sets
+        int reps
+        real rpe
+        text notes
+    }
 ```
 
 > **Note**: The tables are independent (no foreign keys between them). This is by design -- each table stores a different type of health data that can exist independently. The relationships are implicit:
