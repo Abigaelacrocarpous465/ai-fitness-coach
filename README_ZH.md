@@ -132,6 +132,38 @@ claude --channels plugin:whatsapp@whatsapp-claude-plugin
   <img src="assets/demo/06-restaurant.jpg" alt="根據每日剩餘營養目標推薦餐廳" width="300">
 </p>
 
+### 體重追蹤與趨勢
+
+> 「我的體重是 130」 -- 記錄體重並即時查看進度趨勢和目標追蹤。
+
+<p align="center">
+  <img src="assets/demo/03-weight.jpg" alt="體重記錄與趨勢追蹤" width="300">
+</p>
+
+### 器材使用教學
+
+> 教練不只辨識器材 — 還會一步步教你正確的使用方式和安全要點。
+
+<p align="center">
+  <img src="assets/demo/07-maps.jpg" alt="器材詳細使用教學與姿勢提示" width="300">
+</p>
+
+### 尋找最近餐廳
+
+> 「幫我找最近的 Chipotle」 -- 提供地址、電話、營業時間和 Google Maps 連結。
+
+<p align="center">
+  <img src="assets/demo/09-extra.jpg" alt="最近餐廳搜尋與 Google Maps 導航" width="300">
+</p>
+
+### 最佳化點餐建議
+
+> 「我該點什麼？」 -- 根據你剩餘的每日營養目標，提供最佳化的點餐建議，同時考慮飲食限制。
+
+<p align="center">
+  <img src="assets/demo/08-order.jpg" alt="根據營養目標最佳化的點餐建議" width="300">
+</p>
+
 ---
 
 ## 常見問題

@@ -132,6 +132,38 @@ Here is what a typical interaction looks like in your WhatsApp group:
   <img src="assets/demo/06-restaurant.jpg" alt="Restaurant recommendations based on remaining daily nutrition targets" width="300">
 </p>
 
+### Weight Tracking & Trends
+
+> "My weight is 130" -- Log your weight and instantly see your progress trend with goal tracking.
+
+<p align="center">
+  <img src="assets/demo/03-weight.jpg" alt="Weight logging with trend display and goal tracking" width="300">
+</p>
+
+### Equipment Usage Guide
+
+> The coach doesn't just identify machines — it teaches you step-by-step how to use them with proper form and safety tips.
+
+<p align="center">
+  <img src="assets/demo/07-maps.jpg" alt="Detailed equipment usage instructions with form tips" width="300">
+</p>
+
+### Find Nearest Restaurant
+
+> "Show me the nearest Chipotle on Google Maps" -- Get the address, phone number, hours, and a direct Google Maps link.
+
+<p align="center">
+  <img src="assets/demo/09-extra.jpg" alt="Nearest restaurant with Google Maps link and order suggestion" width="300">
+</p>
+
+### Optimized Order Suggestion
+
+> "What should I order?" -- Get a macro-optimized order that fits your remaining daily targets, with dietary restrictions considered.
+
+<p align="center">
+  <img src="assets/demo/08-order.jpg" alt="Optimized restaurant order with macro breakdown and dietary notes" width="300">
+</p>
+
 ---
 
 ## FAQ
