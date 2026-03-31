@@ -1,0 +1,53 @@
+{
+  "user_name": "YourName",
+  "fitness_goals": {
+    "primary_goal": "Build muscle and increase strength",
+    "current_stats": {
+      "height_cm": 175,
+      "weight_kg": 70
+    },
+    "target_weight_kg": 75,
+    "target_strength": "Continuous improvement",
+    "timeframe": "Long-term"
+  },
+  "nutrition_targets": {
+    "calories_per_day": 2200,
+    "protein_g_per_day": 120,
+    "carbs_g_per_day": 250,
+    "fat_g_per_day": 70
+  },
+  "workout_preferences": {
+    "duration_minutes": [30, 40],
+    "frequency_per_week": "3-4",
+    "exercise_flexibility": "Flexible",
+    "preferred_style": "Muscle gain and strength",
+    "preferred_muscle_group_rotation": [
+      "Chest", "Back", "Legs", "Shoulders", "Biceps", "Triceps", "Core"
+    ],
+    "gym_locations": {
+      "My Gym": {
+        "brand": "Generic",
+        "equipment": ["Dumbbells", "Barbell", "Pull-up Bar", "Bench"],
+        "categories": ["Barbell", "Dumbbell", "Bodyweight"]
+      }
+    }
+  },
+  "workout_context": {
+    "last_workout_date": null,
+    "last_trained_muscle_group": null
+  },
+  "reminder_preferences": {
+    "dynamic_frequency_based_on_activity": true,
+    "time_window": "Anytime",
+    "tone": "Encouraging"
+  },
+  "data_integration_needs": {
+    "method": "photo_recognition",
+    "notes": "Weight via scale photo, food via food photo"
+  },
+  "food_tracking_needs": {
+    "details": "All nutritional information",
+    "macros": true,
+    "calories": true
+  }
+}

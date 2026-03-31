@@ -1,0 +1,10 @@
+# Kai Fitness -- Python Dependencies
+#
+# The core CLI only uses Python standard library modules (sqlite3, json, argparse, etc.)
+# No external packages are required for basic operation.
+#
+# Optional: uncomment if you want timezone-aware scheduling
+# pytz>=2023.3
+#
+# Optional: for running tests
+# pytest>=7.0
